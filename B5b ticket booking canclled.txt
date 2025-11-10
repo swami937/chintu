@@ -1,0 +1,122 @@
+#include <iostream>
+#include <cstdlib> // for rand()
+using namespace std;
+
+struct Node {
+    int seatNo;
+    bool booked;       // true = booked, false = free
+    Node* next;
+    Node* prev;
+};
+
+class Cinemax {
+    Node* head[10];    // array for 10 rows
+public:
+    Cinemax() {
+        for (int i = 0; i < 10; i++)
+            head[i] = NULL;
+        createSeats();
+    }
+
+    // Create seats with random bookings
+    void createSeats() {
+        for (int i = 0; i < 10; i++) {
+            Node* prev = NULL;
+            for (int j = 1; j <= 7; j++) {
+                Node* newNode = new Node;
+                newNode->seatNo = j;
+                newNode->booked = (rand() % 2); // randomly booked/free
+                newNode->next = NULL;
+                newNode->prev = prev;
+
+                if (prev)
+                    prev->next = newNode;
+                else
+                    head[i] = newNode;
+
+                prev = newNode;
+            }
+        }
+    }
+
+    // Display all booked seats
+    void displayBooked() {
+        cout << "\nBooked Seats (Row : Seat Numbers)\n";
+        for (int i = 0; i < 10; i++) {
+            cout << "Row " << (i + 1) << " : ";
+            Node* temp = head[i];
+            bool any = false;
+            while (temp) {
+                if (temp->booked) {
+                    cout << temp->seatNo << " ";
+                    any = true;
+                }
+                temp = temp->next;
+            }
+            if (!any) cout << "None";
+            cout << endl;
+        }
+    }
+
+    // Cancel a booking
+    void cancelBooking(int row, int seatNo) {
+        row--; // convert to 0-index
+        if (row < 0 || row >= 10 || seatNo < 1 || seatNo > 7) {
+            cout << "Invalid row or seat number!\n";
+            return;
+        }
+
+        Node* temp = head[row];
+        while (temp && temp->seatNo != seatNo)
+            temp = temp->next;
+
+        if (!temp) {
+            cout << "Seat not found!\n";
+            return;
+        }
+
+        if (!temp->booked) {
+            cout << "Seat " << seatNo << " in Row " << row + 1 << " is not booked.\n";
+            return;
+        }
+
+        temp->booked = false;
+        cout << "Booking for Seat " << seatNo << " in Row " << row + 1 << " cancelled successfully!\n";
+    }
+};
+
+int main() {
+    Cinemax cinema;
+    int choice;
+
+    do {
+        cout << "\n--- CINEMAX TICKET SYSTEM ---\n";
+        cout << "1. Show Booked Seats\n";
+        cout << "2. Cancel Booking\n";
+        cout << "3. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cinema.displayBooked();
+                break;
+            case 2: {
+                int row, seat;
+                cout << "Enter Row (1-10): ";
+                cin >> row;
+                cout << "Enter Seat Number (1-7): ";
+                cin >> seat;
+                cinema.cancelBooking(row, seat);
+                break;
+            }
+            case 3:
+                cout << "Thank you for visiting Cinemax!\n";
+                break;
+            default:
+                cout << "Invalid choice!\n";
+        }
+    } while (choice != 3);
+
+    return 0;
+}

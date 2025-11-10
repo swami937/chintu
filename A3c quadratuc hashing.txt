@@ -1,0 +1,108 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int SIZE = 10;
+
+struct Client {
+    string name;
+    long long phone;
+    bool occupied;
+};
+
+// Hash Function
+int hashFunction(string key) {
+    int sum = 0;
+    for (int i = 0; i < key.length(); i++)
+        sum += key[i];
+    return sum % SIZE;
+}
+
+// Insert using Quadratic Probing
+void insert(Client table[]) {
+    string name;
+    long long phone;
+    cout << "Enter client name: ";
+    cin >> name;
+    cout << "Enter phone number: ";
+    cin >> phone;
+
+    int index = hashFunction(name);
+    int i = 0;
+
+    // Quadratic probing formula
+    while (table[(index + i * i) % SIZE].occupied && i < SIZE) {
+        i++;
+    }
+
+    int newIndex = (index + i * i) % SIZE;
+
+    if (i == SIZE) {
+        cout << "Hash Table is Full!" << endl;
+        return;
+    }
+
+    table[newIndex].name = name;
+    table[newIndex].phone = phone;
+    table[newIndex].occupied = true;
+
+    cout << "Client inserted at index " << newIndex << endl;
+}
+
+// Search using Quadratic Probing
+void search(Client table[]) {
+    string name;
+    cout << "Enter client name to search: ";
+    cin >> name;
+
+    int index = hashFunction(name);
+    int i = 0;
+
+    while (table[(index + i * i) % SIZE].occupied && i < SIZE) {
+        int newIndex = (index + i * i) % SIZE;
+        if (table[newIndex].name == name) {
+            cout << "Client found! Phone: " << table[newIndex].phone << endl;
+            return;
+        }
+        i++;
+    }
+
+    cout << "Client not found!" << endl;
+}
+
+// Display function
+void display(Client table[]) {
+    cout << "\n--- Hash Table ---\n";
+    for (int i = 0; i < SIZE; i++) {
+        cout << i << " : ";
+        if (table[i].occupied)
+            cout << table[i].name << " - " << table[i].phone;
+        else
+            cout << "Empty";
+        cout << endl;
+    }
+}
+
+int main() {
+    Client table[SIZE];
+    for (int i = 0; i < SIZE; i++)
+        table[i].occupied = false;
+
+    int choice;
+    do {
+        cout << "\n--- MENU ---\n";
+        cout << "1. Insert Client\n2. Search Client\n3. Display Table\n4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: insert(table); break;
+            case 2: search(table); break;
+            case 3: display(table); break;
+            case 4: cout << "Exiting program..." << endl; break;
+            default: cout << "Invalid choice!" << endl;
+        }
+    } while (choice != 4);
+
+    return 0;
+}

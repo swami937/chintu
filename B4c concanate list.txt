@@ -1,0 +1,104 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Node {
+    long prn;
+    string name;
+    Node* next;
+};
+
+class PinnacleClub {
+    Node* head;
+public:
+    PinnacleClub() { head = NULL; }
+
+    // Add member (President, Member, or Secretary)
+    void addMember() {
+        Node* newNode = new Node;
+        cout << "Enter PRN and Name: ";
+        cin >> newNode->prn;
+        cin.ignore();
+        getline(cin, newNode->name);
+        newNode->next = NULL;
+
+        if (head == NULL)
+            head = newNode;
+        else {
+            Node* temp = head;
+            while (temp->next != NULL)
+                temp = temp->next;
+            temp->next = newNode;
+        }
+    }
+
+    // Display members
+    void display() {
+        if (head == NULL) {
+            cout << "No members in the club.\n";
+            return;
+        }
+        cout << "\nClub Members:\n";
+        Node* temp = head;
+        while (temp != NULL) {
+            cout << temp->prn << " - " << temp->name << endl;
+            temp = temp->next;
+        }
+    }
+
+    // Count total members
+    int countMembers() {
+        int count = 0;
+        Node* temp = head;
+        while (temp != NULL) {
+            count++;
+            temp = temp->next;
+        }
+        return count;
+    }
+
+    // Concatenate two lists
+    void concatenate(PinnacleClub& obj) {
+        if (head == NULL) {
+            head = obj.head;
+            return;
+        }
+        Node* temp = head;
+        while (temp->next != NULL)
+            temp = temp->next;
+        temp->next = obj.head;
+        obj.head = NULL;  // optional, to avoid duplication
+    }
+};
+
+int main() {
+    PinnacleClub divA, divB;
+
+    int n, choice;
+    cout << "--- Division A ---\n";
+    cout << "Enter number of members: ";
+    cin >> n;
+    for (int i = 0; i < n; i++)
+        divA.addMember();
+
+    cout << "--- Division B ---\n";
+    cout << "Enter number of members: ";
+    cin >> n;
+    for (int i = 0; i < n; i++)
+        divB.addMember();
+
+    cout << "\nDivision A Members:";
+    divA.display();
+
+    cout << "\nDivision B Members:";
+    divB.display();
+
+    // Concatenate lists
+    divA.concatenate(divB);
+
+    cout << "\nAfter Concatenation:\n";
+    divA.display();
+
+    cout << "\nTotal Members after merging: " << divA.countMembers() << endl;
+    return 0;
+}

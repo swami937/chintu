@@ -1,0 +1,85 @@
+#include <iostream>
+using namespace std;
+
+// ---------- Function: Bubble Sort ----------
+void BubbleSort(float arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        bool swapped = false;
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                float temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                swapped = true;
+            }
+        }
+        if (!swapped) break; // Optimization: stop if already sorted
+    }
+    cout << "Array sorted successfully (ascending order)." << endl;
+}
+
+// ---------- Function: Display All Percentages ----------
+void Display(float arr[], int n) {
+    cout << "Student Percentages: ";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+
+// ---------- Function: Display Top 5 Scores ----------
+void DisplayTop5(float arr[], int n) {
+    cout << "Top 5 Scores: ";
+    int count = 0;
+    for (int i = n - 1; i >= 0 && count < 5; i--) {
+        cout << arr[i] << " ";
+        count++;
+    }
+    cout << endl;
+}
+
+// ---------- Main Function ----------
+int main() {
+    int n, ch;
+    float perc[50];
+
+    cout << "Enter number of students: ";
+    cin >> n;
+
+    cout << "Enter first year percentages:\n";
+    for (int i = 0; i < n; i++)
+        cin >> perc[i];
+
+    do {
+        cout << "\n--- MENU ---\n";
+        cout << "1. Sort Percentages (Bubble Sort)\n";
+        cout << "2. Display All Percentages\n";
+        cout << "3. Display Top 5 Scores\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> ch;
+
+        switch (ch) {
+            case 1:
+                BubbleSort(perc, n);
+                break;
+
+            case 2:
+                Display(perc, n);
+                break;
+
+            case 3:
+                BubbleSort(perc, n); // Ensure sorting before top 5
+                DisplayTop5(perc, n);
+                break;
+
+            case 4:
+                cout << "Exiting program..." << endl;
+                break;
+
+            default:
+                cout << "Invalid choice! Try again." << endl;
+        }
+    } while (ch != 4);
+
+    return 0;
+}

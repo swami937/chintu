@@ -1,0 +1,84 @@
+#include <iostream>
+using namespace std;
+
+#define MAX 10
+
+class JobQueue {
+    int front, rear;
+    string jobs[MAX];   // to store job names
+
+public:
+    JobQueue() {
+        front = -1;
+        rear = -1;
+    }
+
+    // Add job
+    void addJob(string job) {
+        if (rear == MAX - 1) {
+            cout << "Queue is full! Cannot add job.\n";
+            return;
+        }
+        if (front == -1)
+            front = 0;
+        rear++;
+        jobs[rear] = job;
+        cout << "Job '" << job << "' added to queue.\n";
+    }
+
+    // Delete job
+    void deleteJob() {
+        if (front == -1 || front > rear) {
+            cout << "Queue is empty! No job to delete.\n";
+            return;
+        }
+        cout << "Job '" << jobs[front] << "' processed and removed.\n";
+        front++;
+    }
+
+    // Display queue
+    void display() {
+        if (front == -1 || front > rear) {
+            cout << "Queue is empty.\n";
+            return;
+        }
+        cout << "\nCurrent Job Queue:\n";
+        for (int i = front; i <= rear; i++)
+            cout << jobs[i] << "  ";
+        cout << endl;
+    }
+};
+
+int main() {
+    JobQueue q;
+    int choice;
+    string job;
+
+    do {
+        cout << "\n--- JOB QUEUE MENU ---\n";
+        cout << "1. Add Job\n2. Delete Job\n3. Display Queue\n4. Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "Enter Job Name: ";
+                cin >> job;
+                q.addJob(job);
+                break;
+            case 2:
+                q.deleteJob();
+                break;
+            case 3:
+                q.display();
+                break;
+            case 4:
+                cout << "Exiting...\n";
+                break;
+            default:
+                cout << "Invalid choice!\n";
+        }
+    } while (choice != 4);
+
+    return 0;
+}

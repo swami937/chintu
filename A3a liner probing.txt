@@ -1,0 +1,114 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int SIZE = 10; // Size of hash table
+
+// Structure for each record
+struct Client {
+    string name;
+    long long phone;
+    bool occupied;
+};
+
+// Hash Function
+int hashFunction(string name) {
+    int sum = 0;
+    for (int i = 0; i < name.length(); i++)
+        sum += name[i];
+    return sum % SIZE;
+}
+
+
+// Insert Client into Hash Table
+void insert(Client table[]) {
+    string name;
+    long long phone;
+    cout << "Enter client name: ";
+    cin >> name;
+    cout << "Enter phone number: ";
+    cin >> phone;
+
+    int index = hashFunction(name);
+    int start = index; // for checking full table
+    while (table[index].occupied) {
+        index = (index + 1) % SIZE; // Linear Probing
+        if (index == start) {
+            cout << "Hash table is full!" << endl;
+            return;
+        }
+    }
+    table[index].name = name;
+    table[index].phone = phone;
+    table[index].occupied = true;
+
+    cout << "Client inserted successfully at index " << index << endl;
+}
+
+// Search client by name
+void search(Client table[]) {
+    string name;
+    cout << "Enter client name to search: ";
+    cin >> name;
+
+    int index = hashFunction(name);
+    int start = index;
+
+    while (table[index].occupied) {
+        if (table[index].name == name) {
+            cout << "Client found! Phone Number: " << table[index].phone << endl;
+            return;
+        }
+        index = (index + 1) % SIZE; // linear probe
+        if (index == start)
+            break;
+    }
+    cout << "Client not found!" << endl;
+}
+
+// Display Hash Table
+void display(Client table[]) {
+    cout << "\n--- Hash Table ---\n";
+    for (int i = 0; i < SIZE; i++) {
+        cout << i << " : ";
+        if (table[i].occupied)
+            cout << table[i].name << " - " << table[i].phone;
+        else
+            cout << "Empty";
+        cout << endl;
+    }
+}
+
+// Main Function
+int main() {
+    Client table[SIZE];
+    for (int i = 0; i < SIZE; i++)
+        table[i].occupied = false;
+
+    int choice;
+    do {
+        cout << "\n--- MENU ---\n";
+        cout << "1. Insert Client\n2. Search Client\n3. Display Table\n4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                insert(table);
+                break;
+            case 2:
+                search(table);
+                break;
+            case 3:
+                display(table);
+                break;
+            case 4:
+                cout << "Exiting program..." << endl;
+                break;
+            default:
+                cout << "Invalid choice!" << endl;
+        }
+    } while (choice != 4);
+
+    return 0;
+}
