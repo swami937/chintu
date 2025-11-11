@@ -4,14 +4,13 @@ using namespace std;
 
 const int SIZE = 10; // Size of hash table
 
-// Structure for each record
 struct Client {
     string name;
     long long phone;
     bool occupied;
 };
 
-// Hash Function
+
 int hashFunction(string name) {
     int sum = 0;
     for (int i = 0; i < name.length(); i++)
@@ -20,7 +19,7 @@ int hashFunction(string name) {
 }
 
 
-// Insert Client into Hash Table
+
 void insert(Client table[]) {
     string name;
     long long phone;
@@ -45,7 +44,7 @@ void insert(Client table[]) {
     cout << "Client inserted successfully at index " << index << endl;
 }
 
-// Search client by name
+
 void search(Client table[]) {
     string name;
     cout << "Enter client name to search: ";
@@ -66,7 +65,7 @@ void search(Client table[]) {
     cout << "Client not found!" << endl;
 }
 
-// Display Hash Table
+
 void display(Client table[]) {
     cout << "\n--- Hash Table ---\n";
     for (int i = 0; i < SIZE; i++) {
@@ -79,7 +78,7 @@ void display(Client table[]) {
     }
 }
 
-// Main Function
+
 int main() {
     Client table[SIZE];
     for (int i = 0; i < SIZE; i++)
@@ -112,3 +111,4 @@ int main() {
 
     return 0;
 }
+
