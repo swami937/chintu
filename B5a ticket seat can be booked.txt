@@ -8,7 +8,7 @@ struct Node {
 };
 
 class Cinemax {
-    Node* head[10];  // array of 10 head pointers (one per row)
+    Node* head[10]; 
 public:
     Cinemax() {
         for (int i = 0; i < 10; i++)
@@ -16,7 +16,7 @@ public:
         createSeats();
     }
 
-    // Create initial seating arrangement (all free)
+   
     void createSeats() {
         for (int i = 0; i < 10; i++) {
             Node* prevNode = NULL;
@@ -36,7 +36,7 @@ public:
         }
     }
 
-    // Randomly book a few seats initially
+  
     void initialBooking() {
         cout << "\nSome random seats booked initially.\n";
         bookSeat(1, 3);
@@ -45,7 +45,7 @@ public:
         bookSeat(7, 6);
     }
 
-    // Display available seats
+   
     void displaySeats() {
         cout << "\nAvailable Seats (Row : Seat Numbers):\n";
         for (int i = 0; i < 10; i++) {
@@ -63,7 +63,7 @@ public:
         }
     }
 
-    // Book a specific seat
+   
     void bookSeat(int row, int seatNo) {
         row--; // convert to 0-index
         Node* temp = head[row];
@@ -76,11 +76,11 @@ public:
             return;
         }
 
-        // Adjust links to remove seat
+        
         if (temp->prev)
             temp->prev->next = temp->next;
         else
-            head[row] = temp->next;  // if first node
+            head[row] = temp->next;  
 
         if (temp->next)
             temp->next->prev = temp->prev;
@@ -89,7 +89,7 @@ public:
         cout << "Seat " << seatNo << " in Row " << (row + 1) << " booked successfully!\n";
     }
 
-    // User booking interface
+    
     void userBooking() {
         int row, seat;
         cout << "\nEnter Row (1-10): ";
@@ -129,4 +129,5 @@ int main() {
     } while (choice != 3);
 
     return 0;
+
 }
