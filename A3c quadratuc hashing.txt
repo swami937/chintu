@@ -10,7 +10,7 @@ struct Client {
     bool occupied;
 };
 
-// Hash Function
+
 int hashFunction(string key) {
     int sum = 0;
     for (int i = 0; i < key.length(); i++)
@@ -18,7 +18,7 @@ int hashFunction(string key) {
     return sum % SIZE;
 }
 
-// Insert using Quadratic Probing
+
 void insert(Client table[]) {
     string name;
     long long phone;
@@ -30,7 +30,7 @@ void insert(Client table[]) {
     int index = hashFunction(name);
     int i = 0;
 
-    // Quadratic probing formula
+    
     while (table[(index + i * i) % SIZE].occupied && i < SIZE) {
         i++;
     }
@@ -49,7 +49,7 @@ void insert(Client table[]) {
     cout << "Client inserted at index " << newIndex << endl;
 }
 
-// Search using Quadratic Probing
+
 void search(Client table[]) {
     string name;
     cout << "Enter client name to search: ";
@@ -70,7 +70,7 @@ void search(Client table[]) {
     cout << "Client not found!" << endl;
 }
 
-// Display function
+
 void display(Client table[]) {
     cout << "\n--- Hash Table ---\n";
     for (int i = 0; i < SIZE; i++) {
@@ -106,3 +106,4 @@ int main() {
 
     return 0;
 }
+
