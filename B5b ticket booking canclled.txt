@@ -1,16 +1,16 @@
 #include <iostream>
-#include <cstdlib> // for rand()
+#include <cstdlib> 
 using namespace std;
 
 struct Node {
     int seatNo;
-    bool booked;       // true = booked, false = free
+    bool booked;      
     Node* next;
     Node* prev;
 };
 
 class Cinemax {
-    Node* head[10];    // array for 10 rows
+    Node* head[10];    
 public:
     Cinemax() {
         for (int i = 0; i < 10; i++)
@@ -18,14 +18,14 @@ public:
         createSeats();
     }
 
-    // Create seats with random bookings
+   
     void createSeats() {
         for (int i = 0; i < 10; i++) {
             Node* prev = NULL;
             for (int j = 1; j <= 7; j++) {
                 Node* newNode = new Node;
                 newNode->seatNo = j;
-                newNode->booked = (rand() % 2); // randomly booked/free
+                newNode->booked = (rand() % 2); 
                 newNode->next = NULL;
                 newNode->prev = prev;
 
@@ -39,8 +39,8 @@ public:
         }
     }
 
-    // Display all booked seats
-    void displayBooked() {
+    
+void displayBooked() {
         cout << "\nBooked Seats (Row : Seat Numbers)\n";
         for (int i = 0; i < 10; i++) {
             cout << "Row " << (i + 1) << " : ";
@@ -58,7 +58,7 @@ public:
         }
     }
 
-    // Cancel a booking
+   
     void cancelBooking(int row, int seatNo) {
         row--; // convert to 0-index
         if (row < 0 || row >= 10 || seatNo < 1 || seatNo > 7) {
@@ -119,4 +119,5 @@ int main() {
     } while (choice != 3);
 
     return 0;
+
 }
