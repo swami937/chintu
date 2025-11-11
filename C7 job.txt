@@ -5,7 +5,7 @@ using namespace std;
 
 class JobQueue {
     int front, rear;
-    string jobs[MAX];   // to store job names
+    string jobs[MAX];  
 
 public:
     JobQueue() {
@@ -13,7 +13,7 @@ public:
         rear = -1;
     }
 
-    // Add job
+   
     void addJob(string job) {
         if (rear == MAX - 1) {
             cout << "Queue is full! Cannot add job.\n";
@@ -26,7 +26,7 @@ public:
         cout << "Job '" << job << "' added to queue.\n";
     }
 
-    // Delete job
+   
     void deleteJob() {
         if (front == -1 || front > rear) {
             cout << "Queue is empty! No job to delete.\n";
@@ -36,7 +36,7 @@ public:
         front++;
     }
 
-    // Display queue
+    
     void display() {
         if (front == -1 || front > rear) {
             cout << "Queue is empty.\n";
@@ -81,4 +81,5 @@ int main() {
     } while (choice != 4);
 
     return 0;
+
 }
