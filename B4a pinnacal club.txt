@@ -2,17 +2,17 @@
 #include <string>
 using namespace std;
 
-// Node structure
+
 struct Node {
     string name;
     long long prn;
     Node* next;
 };
 
-// Head pointer (President)
+
 Node* head = NULL;
 
-// Function to add President
+
 void addPresident(string name, long long prn) {
     Node* newNode = new Node();
     newNode->name = name;
@@ -22,7 +22,7 @@ void addPresident(string name, long long prn) {
     cout << "President added successfully.\n";
 }
 
-// Function to add Secretary
+
 void addSecretary(string name, long long prn) {
     Node* newNode = new Node();
     newNode->name = name;
@@ -40,7 +40,7 @@ void addSecretary(string name, long long prn) {
     cout << "Secretary added successfully.\n";
 }
 
-// Function to add Member (between president and secretary)
+
 void addMember(string name, long long prn) {
     if (head == NULL) {
         cout << "Add president first!\n";
@@ -60,7 +60,7 @@ void addMember(string name, long long prn) {
     cout << "Member added successfully.\n";
 }
 
-// Function to display all members
+
 void display() {
     Node* temp = head;
     if (temp == NULL) {
@@ -74,7 +74,7 @@ void display() {
     }
 }
 
-// Function to count total members
+
 void countMembers() {
     Node* temp = head;
     int count = 0;
@@ -85,7 +85,7 @@ void countMembers() {
     cout << "\nTotal Members: " << count << endl;
 }
 
-// Main Function
+
 int main() {
     int choice;
     string name;
@@ -145,4 +145,5 @@ int main() {
     } while (choice != 6);
 
     return 0;
+
 }
