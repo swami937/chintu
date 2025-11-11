@@ -10,7 +10,7 @@ struct Client {
     bool occupied;
 };
 
-// Hash Function 1
+
 int hashFunction1(string name) {
     int sum = 0;
     for (int i = 0; i < name.length(); i++)
@@ -18,7 +18,7 @@ int hashFunction1(string name) {
     return sum % SIZE;
 }
 
-// Hash Function 2 (for double hashing)
+
 int hashFunction2(string name) {
     int sum = 0;
     for (int i = 0; i < name.length(); i++)
@@ -26,7 +26,7 @@ int hashFunction2(string name) {
     return 7 - (sum % 7);  // 7 < SIZE and prime number
 }
 
-// Insert function
+
 void insert(Client table[]) {
     string name;
     long long phone;
@@ -40,7 +40,7 @@ void insert(Client table[]) {
     int i = 0;
     int index = (index1 + i * index2) % SIZE;
 
-    // Find empty slot using double hashing
+   
     while (table[index].occupied && i < SIZE) {
         i++;
         index = (index1 + i * index2) % SIZE;
@@ -58,7 +58,7 @@ void insert(Client table[]) {
     cout << "Client inserted at index " << index << endl;
 }
 
-// Search function
+
 void search(Client table[]) {
     string name;
     cout << "Enter client name to search: ";
@@ -81,7 +81,7 @@ void search(Client table[]) {
     cout << "Client not found!" << endl;
 }
 
-// Display function
+
 void display(Client table[]) {
     cout << "\n--- Hash Table ---\n";
     for (int i = 0; i < SIZE; i++) {
@@ -94,7 +94,7 @@ void display(Client table[]) {
     }
 }
 
-// Main function
+
 int main() {
     Client table[SIZE];
     for (int i = 0; i < SIZE; i++)
@@ -118,3 +118,4 @@ int main() {
 
     return 0;
 }
+
