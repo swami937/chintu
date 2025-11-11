@@ -11,7 +11,7 @@ public:
     Node* root;
     BST() { root = NULL; }
 
-    // Insert node
+    
     Node* insert(Node* root, int val) {
         if (root == NULL) {
             Node* temp = new Node;
@@ -26,7 +26,7 @@ public:
         return root;
     }
 
-    // Inorder display
+    
     void inorder(Node* root) {
         if (root == NULL) return;
         inorder(root->left);
@@ -34,7 +34,7 @@ public:
         inorder(root->right);
     }
 
-    // Find longest path (height)
+    
     int longestPath(Node* root) {
         if (root == NULL) return 0;
         int l = longestPath(root->left);
@@ -42,7 +42,7 @@ public:
         return (l > r ? l : r) + 1;
     }
 
-    // Find minimum value
+    
     int findMin(Node* root) {
         if (root == NULL) return -1;
         while (root->left != NULL)
@@ -94,3 +94,4 @@ int main() {
 
     return 0;
 }
+
