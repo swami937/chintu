@@ -4,8 +4,8 @@ using namespace std;
 #define MAX 10
 
 class Graph {
-    int n;                // number of cities
-    int adj[MAX][MAX];    // adjacency matrix
+    int n;                
+    int adj[MAX][MAX];   
     int visited[MAX];
 
 public:
@@ -16,7 +16,7 @@ public:
                 adj[i][j] = 0;
     }
 
-    // Create graph
+   
     void create() {
         cout << "Enter number of cities: ";
         cin >> n;
@@ -29,7 +29,7 @@ public:
         }
     }
 
-    // Display adjacency matrix
+    
     void display() {
         cout << "\nAdjacency Matrix:\n";
         for (int i = 0; i < n; i++) {
@@ -39,7 +39,7 @@ public:
         }
     }
 
-    // DFS traversal
+   
     void DFS(int v) {
         visited[v] = 1;
         for (int i = 0; i < n; i++) {
@@ -48,7 +48,7 @@ public:
         }
     }
 
-    // Check if graph is connected
+   
     void checkConnected() {
         for (int i = 0; i < n; i++)
             visited[i] = 0;
@@ -71,4 +71,5 @@ int main() {
     g.display();
     g.checkConnected();
     return 0;
+
 }
