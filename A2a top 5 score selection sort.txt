@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// ---------- Function: Selection Sort ----------
+
 void SelectionSort(float arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         int minIndex = i;
@@ -9,7 +9,7 @@ void SelectionSort(float arr[], int n) {
             if (arr[j] < arr[minIndex])
                 minIndex = j;
         }
-        // Swap
+       
         float temp = arr[i];
         arr[i] = arr[minIndex];
         arr[minIndex] = temp;
@@ -17,7 +17,7 @@ void SelectionSort(float arr[], int n) {
     cout << "Array sorted successfully (ascending order)." << endl;
 }
 
-// ---------- Function: Display Top 5 Scores ----------
+
 void DisplayTop5(float arr[], int n) {
     cout << "Top 5 Scores: ";
     int count = 0;
@@ -29,7 +29,7 @@ void DisplayTop5(float arr[], int n) {
     cout << endl;
 }
 
-// ---------- Function: Display All Percentages ----------
+
 void Display(float arr[], int n) {
     cout << "Student Percentages: ";
     for (int i = 0; i < n; i++)
@@ -37,7 +37,7 @@ void Display(float arr[], int n) {
     cout << endl;
 }
 
-// ---------- Main Function ----------
+
 int main() {
     int n, ch;
     float perc[50];
@@ -83,3 +83,4 @@ int main() {
 
     return 0;
 }
+
