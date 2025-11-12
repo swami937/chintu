@@ -84,3 +84,39 @@ int main() {
     return 0;
 }
 
+
+
+
+
+
+
+
+
+Program Logic (Short & Easy)
+
+The program manages students’ percentages and provides options to sort, display all, and show top 5 scores.
+
+It uses the Bubble Sort technique to arrange percentages in ascending order.
+
+Display() shows all student percentages.
+
+DisplayTop5() prints the top 5 highest percentages by reading from the end of the sorted list.
+
+A menu-driven loop allows the user to repeatedly choose actions until they decide to exit.
+
+⚙️ Bubble Sort Logic (Short & Impressive)
+
+Compare each pair of adjacent elements.
+
+Swap them if they’re in the wrong order.
+
+Largest element “bubbles up” to the end in each pass.
+
+Repeat until the array is sorted.
+
+Optimization: if no swap happens in a pass → array already sorted → stop early.
+
+⏱ Time Complexity
+Case	Complexity	Explanation
+Best	O(n)	Already sorted (no swaps needed)
+Average / Worst	O(n²)
