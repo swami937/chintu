@@ -73,3 +73,61 @@ int main() {
     return 0;
 
 }
+
+
+
+⚙️ Class: Graph
+
+Stores flight connections using an adjacency matrix
+and checks connectivity using Depth First Search (DFS).
+
+🧱 Data Members
+
+n → number of cities (vertices)
+
+adj[MAX][MAX] → adjacency matrix (shows flight between cities)
+
+visited[MAX] → marks visited cities during DFS
+
+🔧 Functions
+1. create()
+
+Takes number of cities n.
+
+Fills adjacency matrix with 0 (no flight) or cost (flight exists).
+
+2. display()
+
+Prints the adjacency matrix in table form.
+
+3. DFS(int v)
+
+Visits a city v and recursively visits all connected cities.
+
+Marks visited nodes to avoid repetition.
+
+4. checkConnected()
+
+Resets all visited flags to 0.
+
+Starts DFS from the first city (index 0).
+
+After DFS, checks if all cities were visited:
+
+✅ If yes → Graph is Connected
+
+❌ If not → Graph is Not Connected
+
+🖥️ Main Function
+
+Creates graph (enter cities & flight connections).
+
+Displays adjacency matrix.
+
+Checks and prints whether the graph is connected.
+
+⏱️ Time Complexity
+Operation	Time
+Create Graph	O(n²)
+DFS Traversal	O(n²)
+Overall	O(n²)
