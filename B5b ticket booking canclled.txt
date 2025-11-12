@@ -121,3 +121,66 @@ int main() {
     return 0;
 
 }
+
+⚙️ Main Logic Overview
+🧱 Structure: Node
+
+Each seat is represented as a node in a doubly linked list.
+It contains:
+
+seatNo → Seat number (1–7)
+
+booked → true if booked, else false
+
+next & prev → Links to next and previous seat
+
+🎞️ Class: Cinemax
+
+head[10] → Array of 10 pointers (each row = 1 linked list).
+
+Handles creation, display, and cancellation.
+
+🔧 Functions
+1. createSeats()
+
+Creates 10 rows, each with 7 seats.
+
+Each seat gets a random booked/unbooked status using rand() % 2.
+
+Seats are connected both forward and backward → doubly linked list.
+
+2. displayBooked()
+
+Shows all booked seats row-wise.
+
+If a row has no booked seats → prints "None".
+
+3. cancelBooking(int row, int seatNo)
+
+Checks for valid seat and row numbers.
+
+Finds the specific seat node.
+
+If already booked → marks it as false (cancelled).
+
+Prints success or error message accordingly.
+
+🖥️ main() Function
+
+Creates a Cinemax object → seats auto-created.
+
+Displays a menu:
+
+1️⃣ Show Booked Seats
+
+2️⃣ Cancel Booking
+
+3️⃣ Exit
+
+Performs user-selected operations until they choose Exit.
+
+⏱️ Time Complexity
+Operation	Complexity
+Create Seats	O(10×7) = O(1)
+Display Booked	O(10×7) = O(1)
+Cancel Booking	O(7) per row = O(1)
