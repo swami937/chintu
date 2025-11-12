@@ -147,3 +147,62 @@ int main() {
     return 0;
 
 }
+
+⚙️ Main Concept — Linked List
+
+Each member is stored as a Node (name, prn, next pointer).
+
+All nodes are connected in a chain (President → Members → Secretary).
+
+head points to the first node (President).
+
+🧩 Functions Explained (Short & Simple)
+
+addPresident(name, prn)
+
+Creates the first node (President).
+
+Inserts it at the beginning of the list.
+
+addSecretary(name, prn)
+
+Creates the last node (Secretary).
+
+Adds it at the end of the list.
+
+addMember(name, prn)
+
+Adds a member between President and Secretary.
+
+Traverses till second-last node and inserts before the Secretary.
+
+display()
+
+Shows all members (President → Members → Secretary) in order.
+
+countMembers()
+
+Counts and displays the total number of nodes in the list.
+
+🖥️ main() Function
+
+Shows a menu to:
+
+Add President
+
+Add Member
+
+Add Secretary
+
+Display Members
+
+Count Members
+
+Exit
+
+Calls the respective functions based on user choice.
+
+⏱ Time Complexity
+Operation	Complexity
+Add / Display / Count	O(n)
+Search (implicit in traversal)	O(n)
