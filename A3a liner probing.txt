@@ -112,3 +112,35 @@ int main() {
     return 0;
 }
 
+
+⚙️ Main Concepts
+
+Hash Table:
+
+A fixed-size array (SIZE = 10) to store client records.
+
+Each slot can store one client (name + phone).
+
+Hash Function:
+
+Converts a client’s name into an index using
+sum of ASCII values % SIZE.
+
+Decides where to store data in the table.
+
+Collision Handling (Linear Probing):
+
+If the calculated index is already occupied,
+move to the next index until an empty spot is found.
+
+🧩 Function Logic (In Short)
+
+insert() → Takes name & phone, finds index using hash function, and inserts data. If occupied, finds next empty slot.
+
+search() → Uses the same hash function to locate the record. If not at that index, linearly searches next positions.
+
+display() → Shows all 10 positions of the hash table (either name-phone or “Empty”).
+
+⏱ Time Complexity
+Operation	Best Case	Worst Case
+Insert / Search	O(1)	O(n) (if many collisions)
