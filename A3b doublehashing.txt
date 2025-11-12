@@ -119,3 +119,51 @@ int main() {
     return 0;
 }
 
+
+⚙️ Main Concepts
+
+Hash Table:
+
+A fixed array (SIZE = 10) where each index stores one client record.
+
+Hash Functions:
+
+hashFunction1() → main hash to find index.
+
+hashFunction2() → secondary hash to calculate the jump step when a collision happens.
+
+Double Hashing:
+
+If a position is already filled,
+new index = (hash1 + i * hash2) % SIZE
+where i = number of attempts.
+
+This method reduces clustering and improves efficiency.
+
+🧩 Function Logic (Short & Clear)
+
+insert() →
+
+Takes client name and phone number.
+
+Finds index using two hash functions.
+
+If slot occupied → jumps to next index using double hashing until an empty spot is found.
+
+Stores client details at the found index.
+
+search() →
+
+Uses the same two hash functions to locate the name.
+
+Checks positions step by step using double hashing.
+
+Displays phone number if found; otherwise, shows “Client not found.”
+
+display() →
+
+Shows the entire hash table with all filled and empty slots.
+
+⏱ Time Complexity
+Operation	Best Case	Worst Case
+Insert / Search	O(1)	O(n) (if table almost full)
