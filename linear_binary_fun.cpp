@@ -84,3 +84,21 @@ int main() {
     return 0;
 }
 
+
+
+
+
+
+Program Logic (in short & simple words)
+
+The program searches a student’s roll number using Linear or Binary search.
+
+User enters number of students and their roll numbers.
+
+Linear Search checks each element one by one until it finds the roll number.
+
+Binary Search first sorts the list, then repeatedly divides the list in half to find the roll number faster.
+
+If the roll number is found → displays its position.
+
+Menu keeps running until the user chooses Exit.
