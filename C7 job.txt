@@ -83,3 +83,61 @@ int main() {
     return 0;
 
 }
+
+
+
+
+⚙️ Class: JobQueue
+
+It stores jobs in an array and allows:
+
+Add a Job
+
+Delete a Job
+
+Display all Jobs
+
+🧱 Data Members
+
+front, rear → indices for queue start and end
+
+jobs[MAX] → array (max 10 jobs)
+
+🔧 Functions
+1. addJob(string job)
+
+Checks if the queue is full.
+
+If not full → adds job at rear + 1.
+
+If first job → initializes front = 0.
+
+2. deleteJob()
+
+Checks if queue is empty.
+
+If not empty → removes the job at front (oldest job).
+
+Moves front to next position.
+
+3. display()
+
+Prints all jobs from front to rear.
+
+Shows message if queue is empty.
+
+🖥️ Main Function
+
+Menu-driven:
+1️⃣ Add Job
+2️⃣ Delete Job
+3️⃣ Display Queue
+4️⃣ Exit
+
+Runs in a loop until user chooses Exit.
+
+⏱️ Time Complexity
+Operation	Complexity
+Add Job	O(1)
+Delete Job	O(1)
+Display	O(n)
