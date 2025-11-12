@@ -84,3 +84,40 @@ int main() {
     return 0;
 }
 
+
+
+
+
+Program Logic (Short & Attractive)
+
+The program stores students’ percentages and provides a menu to sort or display them.
+
+Selection Sort is used to arrange percentages in ascending order by repeatedly finding the minimum element and swapping it to the front.
+
+Display() function prints all percentages.
+
+DisplayTop5() shows the top 5 highest percentages by printing from the end of the sorted list.
+
+A menu-driven loop allows the user to:
+
+Sort data
+
+Display all percentages
+
+Display top 5 scorers
+
+Exit the program
+
+⚙️ Selection Sort Logic (Short)
+
+For each position i, find the smallest element in the remaining array.
+
+Swap it with the element at position i.
+
+Repeat until the whole array is sorted.
+
+⏱ Time Complexity
+
+Best / Worst / Average Case: O(n²)
+
+Works well for small datasets.
