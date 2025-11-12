@@ -107,3 +107,52 @@ int main() {
     return 0;
 }
 
+
+⚙️ Main Concepts
+
+Hash Table:
+
+Fixed-size array (SIZE = 10) to store client records.
+
+Each slot can either be empty or occupied.
+
+Hash Function:
+
+Converts the client’s name into an index using
+sum of ASCII values % SIZE.
+
+Decides where the record should be stored.
+
+Quadratic Probing:
+
+If a position is already filled, the program tries
+new index = (hash + i²) % SIZE
+(for i = 1, 2, 3, …)
+
+This reduces clustering compared to linear probing.
+
+🧩 Function Logic (In Short)
+
+insert() →
+
+Takes client name & phone.
+
+Calculates index using hash function.
+
+If index occupied → jumps using quadratic probing.
+
+Inserts data in the first empty slot.
+
+search() →
+
+Finds client by checking same sequence of quadratic positions.
+
+If found → displays phone number; else → shows “Not found.”
+
+display() →
+
+Shows all 10 table slots — either client info or “Empty.”
+
+⏱ Time Complexity
+Operation	Best Case	Worst Case
+Insert / Search	O(1)	O(n) (if many collisions)
