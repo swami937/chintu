@@ -102,3 +102,55 @@ int main() {
     cout << "\nTotal Members after merging: " << divA.countMembers() << endl;
     return 0;
 }
+
+
+
+
+⚙️ Main Concept
+
+Each Node represents a club member with:
+👉 PRN (ID), Name, and a pointer next to the next member.
+
+Each PinnacleClub object (divA, divB) holds its own linked list.
+
+🧩 Function Logic (Short & Simple)
+
+addMember()
+
+Adds a new member at the end of the linked list.
+
+If the list is empty → new member becomes the first node.
+
+display()
+
+Prints all members (PRN - Name) in the list.
+
+If the list is empty, shows a message.
+
+countMembers()
+
+Traverses the list and counts total members.
+
+Returns that count.
+
+concatenate(PinnacleClub &obj)
+
+Connects (joins) Division B’s list at the end of Division A’s list.
+
+Makes a single merged list (Division A + Division B).
+
+🖥️ main() Function Logic
+
+Create two club objects → divA and divB.
+
+Input members for both divisions.
+
+Display both lists separately.
+
+Concatenate divB to divA.
+
+Display the combined list and total member count.
+
+⏱️ Time Complexity
+Operation	Complexity
+Add / Display / Count / Concatenate	O(n)
