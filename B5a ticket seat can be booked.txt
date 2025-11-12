@@ -131,3 +131,86 @@ int main() {
     return 0;
 
 }
+
+
+
+
+
+⚙️ Main Logic Overview
+
+Node Structure
+
+Represents a single seat.
+
+Contains:
+
+seatNo: seat number in that row
+
+next: pointer to next seat
+
+prev: pointer to previous seat
+
+Cinemax Class
+
+head[10]: Array of pointers → one linked list (row) for each of 10 rows.
+
+Contains all main operations like create, display, and book seats.
+
+🧩 Functions Explained
+1. createSeats()
+
+Creates 10 rows, each with 7 seats (1–7).
+
+Links each seat both forward and backward (doubly linked list).
+
+So you can easily traverse and delete (book) a seat.
+
+2. initialBooking()
+
+Automatically books a few seats at the start (e.g., Row 1 Seat 3, Row 2 Seat 5).
+
+It does this by calling bookSeat() directly.
+
+3. displaySeats()
+
+Displays all available (unbooked) seats in every row.
+
+If a seat is booked, it is removed from the linked list, so only free ones are shown.
+
+4. bookSeat(int row, int seatNo)
+
+Searches for the specific seat in the selected row.
+
+If found → deletes that node (marks seat as booked).
+
+Adjusts links so the list remains connected properly.
+
+If not found → seat is already booked or invalid.
+
+5. userBooking()
+
+Allows the user to enter a row number (1–10) and seat number (1–7).
+
+Calls bookSeat() to reserve it.
+
+🖥️ main() Logic
+
+Creates a Cinemax object → automatically creates all seats.
+
+Calls initialBooking() → some seats are pre-booked.
+
+Displays a menu with options:
+
+1️⃣ Show Available Seats
+
+2️⃣ Book a Seat
+
+3️⃣ Exit
+
+Loops until user chooses Exit.
+
+⏱️ Time Complexity
+Operation	Complexity
+Create Seats	O(10×7) = O(1)
+Book Seat	O(7) per row = O(1)
+Display Seats	O(10×7) = O(1)
