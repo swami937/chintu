@@ -95,3 +95,60 @@ int main() {
     return 0;
 }
 
+
+
+
+
+⚙️ Main Logic
+
+Structure Node:
+Holds three things:
+
+data → value of the node
+
+left → pointer to left child
+
+right → pointer to right child
+
+Class BST:
+
+Has a pointer root (start of tree).
+
+Contains four main functions:
+
+a) insert() → Adds a new node in correct BST position
+
+If root is NULL → creates new node
+
+If value < root → goes left
+
+If value > root → goes right
+
+b) inorder() → Displays nodes in sorted order (Left → Root → Right).
+
+c) longestPath() → Finds height of the tree (max depth).
+
+d) findMin() → Traverses to the leftmost node (minimum value).
+
+🖥️ Main Function Flow
+
+User enters how many nodes to add and their values.
+
+Tree is built using insert().
+
+Displays all values using inorder().
+
+Then menu allows to:
+
+Insert new node
+
+Find longest path (tree height)
+
+Find minimum value
+
+⏱️ Time Complexities
+Operation	Time Complexity
+Insert	O(h) (height of tree)
+Inorder	O(n)
+Find Min	O(h)
+Longest Path	O(n)
