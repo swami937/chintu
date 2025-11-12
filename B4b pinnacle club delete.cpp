@@ -240,3 +240,75 @@ int main() {
     
     return 0;
 }
+
+⚙️ Key Concept
+
+A Linked List is used where each node (Node) stores:
+
+prn → member’s ID
+
+name → member’s name
+
+next → pointer to next member
+
+All nodes are linked together from President → Members → Secretary.
+The head pointer stores the start (President).
+
+🧩 Important Functions
+
+addPresident()
+
+Adds a node at the start of the list.
+
+The first node is always the President.
+
+addMember()
+
+Adds a node in the middle or end (after President).
+
+Keeps existing members in order.
+
+addSecretary()
+
+Adds a node at the end of the list as Secretary.
+
+deletePresident()
+
+Removes the first node (President).
+
+deleteMember()
+
+Deletes a member (not President or Secretary) by PRN.
+
+deleteSecretary()
+
+Deletes the last node (Secretary).
+
+countMembers()
+
+Counts total members in the club.
+
+display()
+
+Shows all members with their PRN, Name, and Position.
+
+🖥️ main() Function
+
+Displays a menu with options:
+
+Add / Delete President
+
+Add / Delete Member
+
+Add / Delete Secretary
+
+Display Members
+
+Exit
+
+Calls respective class functions based on user input.
+
+⏱️ Time Complexity
+Operation	Time Complexity
+Add / Delete / Display	O(n)
+Count Members	O(n)
