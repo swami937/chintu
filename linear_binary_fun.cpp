@@ -102,3 +102,8 @@ Binary Search first sorts the list, then repeatedly divides the list in half to 
 If the roll number is found → displays its position.
 
 Menu keeps running until the user chooses Exit.
+
+
+    Linear Search → Simple but slow → O(n)
+🔹 Binary Search → Fast and efficient → O(log n)
+
